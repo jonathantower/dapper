@@ -16,12 +16,11 @@ namespace DapperDemos
 	{
 		static void Main(string[] args)
 		{
-			//DapperBasic.RunAll();
+			DapperBasic.RunAll();
 			//DapperContrib.RunAll();
 			//DapperSQLBuilder.RunAll();
-			//DapperRainbow.RunAll();
-			DapperExtension.RunAll();
-			//DapperSimpleCRUD.RunAll();
+			//DapperRainbow.RunAll(); //doesn't work
+			//DapperExtension.RunAll();
 		}
 
 	}

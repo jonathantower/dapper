@@ -99,7 +99,7 @@ namespace DapperDemos.Classes
 					@"IF NOT OBJECT_ID('dbo.Products', 'U') IS NULL 
 					  DROP TABLE dbo.Products");
 
-				Console.WriteLine("Removed Products table");
+				Console.WriteLine("Removed Products table (Execute, No Results)");
 			}
 
 			Console.ReadKey();
@@ -123,7 +123,7 @@ namespace DapperDemos.Classes
 					  values (@FirstName, @LastName, @Email)",
 					contacts);
 
-				Console.WriteLine("Inserted {0} rows", rowCount);
+				Console.WriteLine("Inserted {0} rows (Bulk Insert)", rowCount);
 			}
 
 			Console.ReadKey();
@@ -142,8 +142,10 @@ namespace DapperDemos.Classes
 					"SELECT Count(*) as [Count] FROM Contacts WHERE ID in @IDs",
 					new { IDs = new[] { 1, 2, 3 } }).First().Count;
 
-				Console.WriteLine("Found {0} rows with IN() query", count);
+				Console.WriteLine("Found {0} rows with IN() query (IN List Support)", count);
 			}
+
+			Console.ReadKey();
 		}
 
 		private static void MultiMapping()
@@ -152,6 +154,7 @@ namespace DapperDemos.Classes
 			{
 				cn.Open();
 
+				// up to 7 at once, plus a return type
 				var o = cn.Query<Order, Contact, Order>(
 					@"SELECT * 
                       FROM Orders o
@@ -161,7 +164,7 @@ namespace DapperDemos.Classes
 					.First();
 
 				Console.WriteLine(
-					"Order: {0} with contact {1} {2}",
+					"Order: {0} with contact {1} {2} (Multi-mapping)",
 					o.Id,
 					o.Contact.FirstName,
 					o.Contact.LastName);
@@ -186,7 +189,7 @@ namespace DapperDemos.Classes
 				var contact = multiResults.Read<Contact>().First();
 				var order = multiResults.Read<Order>().First();
 
-				Console.WriteLine("Found contact id {0}", contact.Id);
+				Console.WriteLine("Found contact id {0} (Multiple Results)", contact.Id);
 				Console.WriteLine("Found order id {0}", order.Id);
 			}
 
@@ -203,12 +206,12 @@ namespace DapperDemos.Classes
 				parameters.Add("@contactID", 1);
 
 				var c = cn.Query<Contact>(
-						"spMagicProc",
+						"spGetContact",
 						parameters,
 						commandType: CommandType.StoredProcedure)
 					.First();
 
-				Console.WriteLine("Found {0} {1}", c.FirstName, c.LastName);
+				Console.WriteLine("Found {0} {1} (Stored Procedure)", c.FirstName, c.LastName);
 			}
 
 			Console.ReadKey();

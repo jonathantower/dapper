@@ -57,7 +57,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper.Rainbow, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.Rainbow.0.1.2\lib\net40\Dapper.Rainbow.dll</HintPath>
+      <HintPath>..\packages\Dapper.Rainbow.0.1.1\lib\net40\Dapper.Rainbow.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Dapper.SimpleCRUD, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -88,7 +88,6 @@
     <Compile Include="Classes\DapperContrib.cs" />
     <Compile Include="Classes\DapperExtension.cs" />
     <Compile Include="Classes\DapperRainbow.cs" />
-    <Compile Include="Classes\DapperSimpleCRUD.cs" />
     <Compile Include="Classes\DapperSQLBuilder.cs" />
     <Compile Include="Models\ContactMapper.cs" />
     <Compile Include="Models\IContact.cs" />

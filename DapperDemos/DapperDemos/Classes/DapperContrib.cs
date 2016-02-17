@@ -20,7 +20,6 @@ namespace DapperDemos.Classes
 			UpdatesWithChangeTracking();
 		}
 
-
 		public static void GetMethods()
 		{
 			using (var cn = new SqlConnection(CONNECTION_STRING))
@@ -49,8 +48,8 @@ namespace DapperDemos.Classes
 
 			using (var cn = new SqlConnection(CONNECTION_STRING))
 			{
-				var count = cn.Insert(contact);
-				Console.WriteLine("Records inserted: {0}", count);
+				var id = cn.Insert(contact);
+				Console.WriteLine("Inserted record ID: {0}", id);
 			}
 
 			Console.ReadKey();

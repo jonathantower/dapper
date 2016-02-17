@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using DapperDemos.Models;
 using DapperExtensions;
+using DapperExtensions.Mapper;
 
 namespace DapperDemos.Classes
 {

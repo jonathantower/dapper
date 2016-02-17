@@ -1,6 +1,7 @@
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Linq;
 using Dapper;
 using DapperDemos.Models;
 
@@ -26,13 +27,15 @@ namespace DapperDemos.Classes
 				builder.Where("FirstName LIKE '%' + @FirstName + '%'", new { FirstName = firstName });
 
 			if (lastName != null)
-				builder.Where("LastName LIKE '%' + @FirstName + '%'", new { LastName = lastName });
+				builder.Where("LastName LIKE '%' + @LastName + '%'", new { LastName = lastName });
 
 			using (var cn = new SqlConnection(CONNECTION_STRING))
 			{
 				cn.Open();
 				var c = cn.Query<Contact>(template.RawSql, template.Parameters);
+				Console.WriteLine("Found {0} contacts", c.Count());
 			}
+
 
 			Console.ReadKey();
 		}

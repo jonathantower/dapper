@@ -23,7 +23,7 @@ namespace DapperDemos.Models
 			Map(x => x.FirstName).Column("FirstName");
 
 			//Ignore this property entirely
-			Map(x => x.FullName).Ignore();
+			//Map(x => x.FullName).Ignore();
 
 			//optional, map all other columns
 			AutoMap();

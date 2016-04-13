@@ -16,7 +16,8 @@ namespace DapperDemos
 	{
 		static void Main(string[] args)
 		{
-			DapperBasic.RunAll();
+			DapperBasic.HelloWorld();
+			//DapperBasic.RunAll();
 			//DapperContrib.RunAll();
 			//DapperSQLBuilder.RunAll();
 			//DapperRainbow.RunAll(); //doesn't work

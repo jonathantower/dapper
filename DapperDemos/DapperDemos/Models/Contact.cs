@@ -18,9 +18,9 @@ namespace DapperDemos.Models
 		public string LastName { get; set; }
 		public string Email { get; set; }
 
-		[Computed]
-		public string FullName {
-			get { return FirstName + " " + LastName; }
-		}
+		//[Computed]
+		//public string FullName {
+		//	get { return FirstName + " " + LastName; }
+		//}
 	}
 }

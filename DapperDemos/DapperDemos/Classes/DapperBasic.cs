@@ -17,9 +17,13 @@ namespace DapperDemos.Classes
 			.ConnectionStrings["default"]
 			.ConnectionString;
 
-		public static void RunAll()
+		public static void HelloWorld()
 		{
 			SimpleQuery();
+		}
+
+		public static void RunAll()
+		{
 			ParameterizedQuery();
 			DynamicMapping();
 			ExecuteWithNoResults();
